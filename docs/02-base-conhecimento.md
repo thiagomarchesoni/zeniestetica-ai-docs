@@ -1,177 +1,227 @@
-# Base de Conhecimento
+# 📚 **Base de Conhecimento — Agente Zeni**
 
 > [!TIP]
-> **Prompt usado para esta etapa:**
-> >  Organize a base de conhecimento do agente "Edu" usando os 4 arquivos da pasta `data/` (em anexo). Explique pra que serve cada arquivo e monte um exemplo de contexto formatado que será enviado pro LLM. Preencha o template abaixo.
-> 
->***Prompt sugerido para essa etapa*** : Preciso organizar a base de conhecimento do meu agente financeiro educativo. Tenho esses arquivos de dados [listar arquivos. Me ajude a:
->  (1) entender o que cada arquivo contém,
->  (2) decidir como usar cada um,
->  (3) criar um exemplo de contexto formatado para incluir no prompt
-
->
-> [cole ou anexe o template `02-base-conhecimento.md` pra contexto]
-
-## Dados Utilizados
-
-| Arquivo | Formato | Para que serve no Edu? |
-|---------|---------|---------------------|
-| `historico_atendimento.csv` | CSV | Contextualizar interações anteriores, ou seja, dar continuidade ao atendimento de forma mais eficiente. |
-| `perfil_investidor.json` | JSON | Personalizar as explicações sobre as dúvidas e necessidades de aprendizado do cliente. |
-| `produtos_financeiros.json` | JSON | Conhecer os produtos disponíveis para que eles possam ser ensinados ao cliente. |
-| `transacoes.csv` | CSV | Analisar padrão de gastos do cliente e usar essas informações de forma didática. |
+> **Prompt usado para esta etapa:**  
+> Organize a base de conhecimento do agente “Zeni”, assistente virtual de uma clínica de estética avançada. Explique para que serve cada arquivo, como será usado pelo agente e monte um exemplo de contexto formatado que será enviado ao LLM.  
+>  
+> *Prompt sugerido:*  
+> “Preciso organizar a base de conhecimento do meu agente de estética avançada. Tenho estes arquivos de dados [listar arquivos]. Me ajude a:  
+> (1) entender o que cada arquivo contém,  
+> (2) decidir como usar cada um,  
+> (3) criar um exemplo de contexto formatado para incluir no prompt.”
 
 ---
 
-## Adaptações nos Dados
+# ## **Dados Utilizados**
+
+| Arquivo | Formato | Para que serve no agente Zeni? |
+|---------|---------|--------------------------------|
+| `perfil_clinica.json` | JSON | Define identidade, posicionamento, metas e características da clínica. Ajuda o agente a manter coerência com o tom premium e a proposta de valor. |
+| `produtos_estetica.json` | JSON | Lista todos os procedimentos, categorias, benefícios, valores médios e indicações. Permite que a Zeni explique cada tratamento com clareza e segurança. |
+| `historico_atendimento.md` | Markdown | Contém fluxos de captação, agendamento, pré e pós-procedimento. Ajuda a Zeni a conduzir o cliente de forma estruturada. |
+| `base_conhecimento.md` | Markdown | Explicações detalhadas sobre procedimentos, cuidados, contraindicações e recomendações. É a fonte principal de conteúdo técnico simplificado. |
+
+
+---
+
+# ## **Adaptações nos Dados**
 
 > Você modificou ou expandiu os dados mockados? Descreva aqui.
 
-O produto Fundo Imobiliário (FII) substituiu o Fundo Multimercado, pois pessoalmente me sinto mais confiante em usar apenas produtos financeiros que eu conheço. Assim, poderei validar as respostas do Edu de forma mais assertiva.
+- O catálogo de produtos foi expandido para incluir **procedimentos faciais, corporais, laser, bem-estar e estética avançada**.  
+- O perfil da clínica foi adaptado para incluir **capacidade mensal, ticket médio e clientes ativos**, substituindo métricas financeiras que não fazem sentido para uma clínica.  
+- As diretrizes de comunicação foram personalizadas para refletir o tom **premium, acolhedor e elegante** da marca.  
+- A base de conhecimento foi estruturada para evitar riscos éticos: **sem diagnósticos, sem promessas, sem prescrições**.
 
 ---
 
-## Estratégia de Integração
+# ## **Estratégia de Integração**
 
-### Como os dados são carregados?
-> Descreva como seu agente acessa a base de conhecimento.
+### **Como os dados são carregados?**
 
-Existem duas possibilidades, injetar os dados diretamente no prompt (Ctrl + C, Ctrl + V) ou carregar os arquivos via código, como no exemplo abaixo:
+Os dados podem ser carregados diretamente no prompt ou via código, como no exemplo:
 
 ```python
-import pandas as pd
 import json
 
-perfil = json.load(open('./data/perfil_investidor.json'))
-transacoes = pd.read_csv('./data/transacoes.csv')
-historico = pd.read_csv('./data/historico_atendimento.csv')
-produtos = json.load(open('./data/produtos_financeiros.json'))
+perfil = json.load(open('./data/perfil_clinica.json'))
+produtos = json.load(open('./data/produtos_estetica.json'))
+
+with open('./data/diretrizes_comunicacao.md') as f:
+    diretrizes = f.read()
+
+with open('./data/fluxos_atendimento.md') as f:
+    fluxos = f.read()
+
+with open('./data/base_conhecimento.md') as f:
+    conhecimento = f.read()
+
+with open('./data/faq.md') as f:
+    faq = f.read()
 ```
 
-### Como os dados são usados no prompt?
-> Os dados vão no system prompt? São consultados dinamicamente?
+---
 
-Para simplificar, podemos simplesmente "injetar" os dados em nosso prompt, agarntindo que o Agente tenha o melhor contexto possível. Lembrando que, em soluções mais robustas, o ideal é que essas informaçoes sejam carregadas dinamicamente para que possamos ganhar flexibilidade.
+### **Como os dados são usados no prompt?**
 
-```text
-DADOS DO CLIENTE E PERFIL (data/perfil_investidor.json):
+Para simplificar, os dados podem ser **injetados diretamente no system prompt**, garantindo que a Zeni tenha acesso ao máximo contexto possível.
+
+Em soluções mais robustas, o ideal é carregar dinamicamente conforme a necessidade (RAG, embeddings, chunking etc.).
+
+---
+
+# ## **Exemplo de Dados Formatados para o Prompt**
+
+Abaixo está um exemplo de como os dados podem ser enviados ao LLM de forma organizada e otimizada:
+
+---
+
+### **PERFIL DA CLÍNICA (perfil_clinica.json)**
+
+```json
 {
-  "nome": "João Silva",
-  "idade": 32,
-  "profissao": "Analista de Sistemas",
-  "renda_mensal": 5000.00,
-  "perfil_investidor": "moderado",
-  "objetivo_principal": "Construir reserva de emergência",
-  "patrimonio_total": 15000.00,
-  "reserva_emergencia_atual": 10000.00,
-  "aceita_risco": false,
-  "metas": [
-    {
-      "meta": "Completar reserva de emergência",
-      "valor_necessario": 15000.00,
-      "prazo": "2026-06"
-    },
-    {
-      "meta": "Entrada do apartamento",
-      "valor_necessario": 50000.00,
-      "prazo": "2027-12"
-    }
-  ]
+  "nome": "Zeni Estética Avançada",
+  "idade": 5,
+  "perfil_clinica": "premium focada em estética avançada e bem-estar",
+  "objetivo_principal": "Aumentar a fidelização dos clientes e expandir o portfólio de tratamentos avançados",
+  "capacidade_mensal": 300,
+  "ticket_medio": 450.00,
+  "clientes_ativos": 180
 }
+```
 
-TRANSACOES DO CLIENTE (data/transacoes.csv):
-data,descricao,categoria,valor,tipo
-2025-10-01,Salário,receita,5000.00,entrada
-2025-10-02,Aluguel,moradia,1200.00,saida
-2025-10-03,Supermercado,alimentacao,450.00,saida
-2025-10-05,Netflix,lazer,55.90,saida
-2025-10-07,Farmácia,saude,89.00,saida
-2025-10-10,Restaurante,alimentacao,120.00,saida
-2025-10-12,Uber,transporte,45.00,saida
-2025-10-15,Conta de Luz,moradia,180.00,saida
-2025-10-20,Academia,saude,99.00,saida
-2025-10-25,Combustível,transporte,250.00,saida
+---
 
-HISTORICO DE ATENDIMENTO DO CLIENTE (data/historico_atendimento.csv):
-data,canal,tema,resumo,resolvido
-2025-09-15,chat,CDB,Cliente perguntou sobre rentabilidade e prazos,sim
-2025-09-22,telefone,Problema no app,Erro ao visualizar extrato foi corrigido,sim
-2025-10-01,chat,Tesouro Selic,Cliente pediu explicação sobre o funcionamento do Tesouro Direto,sim
-2025-10-12,chat,Metas financeiras,Cliente acompanhou o progresso da reserva de emergência,sim
-2025-10-25,email,Atualização cadastral,Cliente atualizou e-mail e telefone,sim
+### **CATÁLOGO DE PRODUTOS (produtos_estetica.json)**
 
-PRODUTOS DISPONIVEIS PARA ENSINO (data/produtos_financeiros.json):
+```json
 [
   {
-    "nome": "Tesouro Selic",
-    "categoria": "renda_fixa",
-    "risco": "baixo",
-    "rentabilidade": "100% da Selic",
-    "aporte_minimo": 30.00,
-    "indicado_para": "Reserva de emergência e iniciantes"
+    "nome": "Depilação a Laser",
+    "categoria": "laser",
+    "intensidade": "média",
+    "beneficio_principal": "Redução definitiva dos pelos",
+    "valor_medio": 120.00,
+    "indicado_para": "Quem busca praticidade e redução de pelos de forma duradoura"
   },
   {
-    "nome": "CDB Liquidez Diária",
-    "categoria": "renda_fixa",
-    "risco": "baixo",
-    "rentabilidade": "102% do CDI",
-    "aporte_minimo": 100.00,
-    "indicado_para": "Quem busca segurança com rendimento diário"
-  },
-  {
-    "nome": "LCI/LCA",
-    "categoria": "renda_fixa",
-    "risco": "baixo",
-    "rentabilidade": "95% do CDI",
-    "aporte_minimo": 1000.00,
-    "indicado_para": "Quem pode esperar 90 dias (isento de IR)"
-  },
-  {
-    "nome": "Fundo Imobiliário (FII)",
-    "categoria": "fundo",
-    "risco": "medio",
-    "rentabilidade": "Dividend Yield (DY) costuma ficar entre 6% a 12% ao ano",
-    "aporte_minimo": 100.00,
-    "indicado_para": "Perfil moderado que busca diversificação e renda recorrente mensal"
-  },
-  {
-    "nome": "Fundo de Ações",
-    "categoria": "fundo",
-    "risco": "alto",
-    "rentabilidade": "Variável",
-    "aporte_minimo": 100.00,
-    "indicado_para": "Perfil arrojado com foco no longo prazo"
+    "nome": "Botox",
+    "categoria": "estetica_avancada",
+    "intensidade": "alta",
+    "beneficio_principal": "Suavização de rugas e linhas de expressão",
+    "valor_medio": 900.00,
+    "indicado_para": "Pessoas que desejam rejuvenescimento facial com resultados rápidos"
   }
 ]
 ```
 
+*(lista completa pode ser incluída no prompt real)*
+
 ---
 
-## Exemplo de Contexto Montado
-
-> Mostre um exemplo de como os dados são formatados para o agente.
-
-O exemplo de contexto montado abaixo, se baiseia nos dados originais da base de conhecimento, mas os sintetiza deixando apenas as informações mais relevantes, otimizando assim o consumo de tokens. Entretanto, vale lembrar que mais importante do que economizar tokens, é ter todas as informações relevantes disponíveis em seu contexto.
+### **DIRETRIZES DE COMUNICAÇÃO (diretrizes_comunicacao.md)**
 
 ```
-DADOS DO CLIENTE:
-- Nome: João Silva
-- Perfil: Moderado
-- Objetivo: Construir reserva de emergência
-- Reserva atual: R$ 10.000 (meta: R$ 15.000)
-
-RESUMO DE GASTOS:
-- Moradia: R$ 1.380
-- Alimentação: R$ 570
-- Transporte: R$ 295
-- Saúde: R$ 188
-- Lazer: R$ 55,90
-- Total de saídas: R$ 2.488,90
-
-PRODUTOS DISPONÍVEIS PARA EXPLICAR:
-- Tesouro Selic (risco baixo)
-- CDB Liquidez Diária (risco baixo)
-- LCI/LCA (risco baixo)
-- Fundo Imobiliário - FII (risco médio)
-- Fundo de Ações (risco alto)
+- Tom acolhedor, elegante e profissional
+- Linguagem simples e clara
+- Evitar termos técnicos sem explicação
+- Nunca prometer resultados garantidos
+- Sempre reforçar segurança e bem-estar
 ```
+
+---
+
+### **FLUXOS DE ATENDIMENTO (fluxos_atendimento.md)**
+
+```
+1. Captação → acolhimento → identificação da necessidade
+2. Explicação do procedimento → benefícios → cuidados
+3. Convite para avaliação → agendamento
+4. Pós-procedimento → orientações → acompanhamento
+```
+
+---
+
+### **BASE DE CONHECIMENTO (base_conhecimento.md)**
+
+```
+Botox:
+- Indicado para rugas dinâmicas
+- Aplicação rápida
+- Resultados em 3 a 7 dias
+- Contraindicações: gestantes, lactantes, alergias específicas
+- Cuidados: evitar exercícios por 24h
+```
+
+---
+
+### **FAQ (faq.md)**
+
+```
+"Botox dói?"
+→ A maioria das pessoas relata apenas um leve incômodo.
+
+"Quantas sessões de laser preciso?"
+→ Depende da área e do tipo de pelo, mas geralmente 6 a 10 sessões.
+```
+
+---
+
+# ## **Exemplo de Contexto Montado**
+
+Abaixo está um exemplo de como tudo pode ser sintetizado para envio ao LLM:
+
+```
+PERFIL DA CLÍNICA:
+- Nome: Zeni Estética Avançada
+- Perfil: Premium, estética avançada e bem-estar
+- Capacidade: 300 atendimentos/mês
+- Ticket médio: R$ 450
+- Clientes ativos: 180
+
+CATÁLOGO DE PROCEDIMENTOS:
+- Depilação a Laser (benefício: redução definitiva dos pelos)
+- Botox (benefício: suavização de rugas)
+- Enzimas (benefício: redução de gordura localizada)
+- Bioestimuladores (benefício: firmeza e colágeno)
+- Limpeza de Pele (benefício: renovação da pele)
+- Drenagem Linfática (benefício: redução de inchaço)
+- Massagem Relaxante (benefício: bem-estar)
+- Peeling Químico (benefício: renovação celular)
+
+DIRETRIZES DE COMUNICAÇÃO:
+- Tom acolhedor, elegante e profissional
+- Linguagem simples e clara
+- Nunca prometer resultados
+- Sempre recomendar avaliação quando necessário
+
+FLUXO DE ATENDIMENTO:
+1. Acolher o cliente
+2. Identificar necessidade
+3. Explicar procedimento de forma simples
+4. Reforçar segurança e cuidados
+5. Convidar para avaliação
+6. Oferecer ajuda adicional
+
+FAQ RESUMIDO:
+- Botox dói? → Leve incômodo.
+- Laser precisa de quantas sessões? → 6 a 10.
+- Enzimas funcionam para gordura localizada? → Sim, ajudam na redução.
+
+INSTRUÇÕES INTERNAS:
+- Não fazer diagnósticos
+- Não prescrever tratamentos
+- Não inventar informações
+- Manter postura premium
+```
+
+---
+
+Se quiser, posso gerar também:
+
+✅ Versão em Markdown pronta para GitHub  
+✅ Versão com links internos entre arquivos  
+✅ Versão com estrutura para RAG (chunking + embeddings)  
+✅ Versão com exemplos de prompts reais para o agente Zeni  
+
+Quer que eu gere alguma dessas?
