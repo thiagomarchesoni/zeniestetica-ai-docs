@@ -217,11 +217,3 @@ INSTRUÇÕES INTERNAS:
 
 ---
 
-Se quiser, posso gerar também:
-
-✅ Versão em Markdown pronta para GitHub  
-✅ Versão com links internos entre arquivos  
-✅ Versão com estrutura para RAG (chunking + embeddings)  
-✅ Versão com exemplos de prompts reais para o agente Zeni  
-
-Quer que eu gere alguma dessas?
