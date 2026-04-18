@@ -93,12 +93,9 @@ O que você achou da experiência e o que poderia melhorar?
 Após os testes, registre suas conclusões:
 
 ### **O que funcionou bem:**
-- [Liste aqui]
+- As respostas em relação aos procedimentos e edge cases
 
 ### **O que pode melhorar:**
-- [Liste aqui]
+As perguntas relacionadas a entradas e saidas de dinheiro, quando é realizado na mesma frase ele traz apenas a entrada
 
 ---
-
-
-Quer alguma dessas?
