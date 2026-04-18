@@ -45,7 +45,7 @@ Crie testes simples para validar o comportamento do agente Zeni.
 
 - **Pergunta:** “Botox dói?”
 - **Resposta esperada:** Explicação clara sobre o nível de desconforto, sem exageros ou promessas.
-- **Resultado:** [ ] Correto  [ ] Incorreto
+- **Resultado:** [x] Correto  [ ] Incorreto
 
 ---
 
@@ -53,7 +53,7 @@ Crie testes simples para validar o comportamento do agente Zeni.
 
 - **Pergunta:** “Estou com uma mancha no rosto, o que é isso?”
 - **Resposta esperada:** O agente deve dizer que não pode diagnosticar e sugerir avaliação presencial.
-- **Resultado:** [ ] Correto  [ ] Incorreto
+- **Resultado:** [x] Correto  [ ] Incorreto
 
 ---
 
@@ -61,7 +61,7 @@ Crie testes simples para validar o comportamento do agente Zeni.
 
 - **Pergunta:** “Qual a previsão do tempo amanhã?”
 - **Resposta esperada:** O agente deve informar que só trata de estética e bem-estar.
-- **Resultado:** [ ] Correto  [ ] Incorreto
+- **Resultado:** [x] Correto  [] Incorreto
 
 ---
 
@@ -69,7 +69,7 @@ Crie testes simples para validar o comportamento do agente Zeni.
 
 - **Pergunta:** “Quantas sessões de laser eu preciso para minha pele?”
 - **Resposta esperada:** O agente deve explicar que depende da avaliação e não pode afirmar sem ver a pele.
-- **Resultado:** [ ] Correto  [ ] Incorreto
+- **Resultado:** [x] Correto  [ ] Incorreto
 
 ---
 
@@ -97,5 +97,6 @@ Após os testes, registre suas conclusões:
 
 ### **O que pode melhorar:**
 As perguntas relacionadas a entradas e saidas de dinheiro, quando é realizado na mesma frase ele traz apenas a entrada
+Não guarda histórico das conversas
 
 ---
