@@ -1,0 +1,82 @@
+[
+  {
+    "nome": "Depilação a Laser",
+    "categoria": "laser",
+    "intensidade": "média",
+    "beneficio_principal": "Redução definitiva dos pelos",
+    "valor_medio": 120.00,
+    "indicado_para": "Quem busca praticidade e redução de pelos de forma duradoura"
+  },
+  {
+    "nome": "Botox",
+    "categoria": "estetica_avancada",
+    "intensidade": "alta",
+    "beneficio_principal": "Suavização de rugas e linhas de expressão",
+    "valor_medio": 900.00,
+    "indicado_para": "Pessoas que desejam rejuvenescimento facial com resultados rápidos"
+  },
+  {
+    "nome": "Enzimas Lipolíticas",
+    "categoria": "estetica_corporal",
+    "intensidade": "alta",
+    "beneficio_principal": "Redução de gordura localizada",
+    "valor_medio": 150.00,
+    "indicado_para": "Quem busca definição corporal sem procedimentos invasivos"
+  },
+  {
+    "nome": "Bioestimuladores de Colágeno",
+    "categoria": "estetica_avancada",
+    "intensidade": "alta",
+    "beneficio_principal": "Melhora da firmeza e qualidade da pele",
+    "valor_medio": 1200.00,
+    "indicado_para": "Pessoas que desejam tratar flacidez e estimular colágeno"
+  },
+  {
+    "nome": "Limpeza de Pele Profunda",
+    "categoria": "facial",
+    "intensidade": "baixa",
+    "beneficio_principal": "Remoção de impurezas e renovação da pele",
+    "valor_medio": 150.00,
+    "indicado_para": "Todos os tipos de pele, especialmente quem busca manutenção mensal"
+  },
+  {
+    "nome": "Drenagem Linfática",
+    "categoria": "bem_estar",
+    "intensidade": "baixa",
+    "beneficio_principal": "Redução de inchaço e melhora da circulação",
+    "valor_medio": 120.00,
+    "indicado_para": "Pessoas com retenção de líquidos, pós-operatório ou busca de relaxamento"
+  },
+  {
+    "nome": "Massagem Relaxante",
+    "categoria": "bem_estar",
+    "intensidade": "baixa",
+    "beneficio_principal": "Redução do estresse e relaxamento muscular",
+    "valor_medio": 100.00,
+    "indicado_para": "Quem busca bem-estar físico e mental"
+  },
+  {
+    "nome": "Tratamento de Melasma com Laser",
+    "categoria": "laser",
+    "intensidade": "alta",
+    "beneficio_principal": "Clareamento de manchas e uniformização da pele",
+    "valor_medio": 350.00,
+    "indicado_para": "Pessoas com melasma resistente a tratamentos convencionais"
+  },
+  {
+    "nome": "Peeling Químico",
+    "categoria": "facial",
+    "intensidade": "média",
+    "beneficio_principal": "Renovação celular e melhora da textura da pele",
+    "valor_medio": 180.00,
+    "indicado_para": "Quem busca tratar manchas, acne e rejuvenescimento"
+  },
+  {
+    "nome": "Tratamento de Celulite",
+    "categoria": "estetica_corporal",
+    "intensidade": "média",
+    "beneficio_principal": "Melhora do aspecto da pele e redução de ondulações",
+    "valor_medio": 200.00,
+    "indicado_para": "Pessoas que desejam melhorar a aparência da celulite"
+  }
+]

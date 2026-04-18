@@ -1,113 +1,103 @@
+# 🎓 Edu - Educador Financeiro Inteligente
 
-# **Zeni Estética – Documentação do Agente de IA**
+> Agente de IA Generativa que ensina conceitos de finanças pessoais de forma simples e personalizada, usando os próprios dados do cliente como exemplos práticos.
 
-Este repositório reúne toda a documentação utilizada pelo agente de IA da **Zeni Estética Avançada**, incluindo perfis, produtos, fluxos de atendimento, diretrizes de comunicação e base de conhecimento para suporte, vendas e relacionamento com clientes.
+## 💡 O Que é o Edu?
 
----
+O Edu é um educador financeiro que **ensina**, não recomenda. Ele explica conceitos como reserva de emergência, tipos de investimentos e análise de gastos usando uma abordagem didática e exemplos concretos baseados no perfil do cliente.
 
-## 📌 **Objetivo do Repositório**
+**O que o Edu faz:**
+- ✅ Explica conceitos financeiros de forma simples
+- ✅ Usa dados do cliente como exemplos práticos
+- ✅ Responde dúvidas sobre produtos financeiros
+- ✅ Analisa padrões de gastos de forma educativa
 
-Centralizar e organizar todas as informações essenciais para:
+**O que o Edu NÃO faz:**
+- ❌ Não recomenda investimentos específicos
+- ❌ Não acessa dados bancários sensíveis
+- ❌ Não substitui um profissional certificado
 
-- Treinar e orientar o agente de IA  
-- Garantir consistência no atendimento  
-- Padronizar comunicação e tom de voz  
-- Facilitar atualizações e expansão da base de conhecimento  
-- Documentar produtos, serviços e processos internos  
+## 🏗️ Arquitetura
 
----
-
-## 🧠 **Conteúdos Incluídos**
-
-### **1. Perfil da Clínica**
-Informações estruturadas sobre identidade, posicionamento, público-alvo, metas e proposta de valor.
-
-### **2. Catálogo de Produtos e Serviços**
-Lista padronizada em JSON com:
-
-- Nome  
-- Categoria  
-- Intensidade  
-- Benefícios  
-- Valor médio  
-- Indicação  
-
-### **3. Diretrizes de Comunicação**
-- Tom de voz  
-- Palavras permitidas e evitadas  
-- Estilo de escrita  
-- Exemplos de respostas  
-
-### **4. Fluxos de Atendimento**
-- Captação  
-- Agendamento  
-- Pré-procedimento  
-- Pós-procedimento  
-- Suporte e dúvidas frequentes  
-
-### **5. Base de Conhecimento**
-Informações detalhadas sobre:
-
-- Procedimentos  
-- Cuidados  
-- Contraindicações  
-- Recomendações  
-- Protocolos internos  
-
----
-
-## 🏗️ **Estrutura Sugerida do Repositório**
-
-```
-/
-├── docs/
-│   ├── perfil_clinica.json
-│   ├── produtos.json
-│   ├── diretrizes_comunicacao.md
-│   ├── fluxos_atendimento.md
-│   ├── base_conhecimento.md
-│   └── faq.md
-├── README.md
-└── LICENSE (opcional)
+```mermaid
+flowchart TD
+    A[Usuário] --> B[Streamlit]
+    B --> C[Ollama - LLM Local]
+    C --> D[Base de Conhecimento]
+    D --> C
+    C --> E[Resposta Educativa]
 ```
 
----
+**Stack:**
+- Interface: Streamlit
+- LLM: Ollama (modelo local `gpt-oss`)
+- Dados: JSON/CSV mockados
 
-## 🎯 **Público-Alvo**
+## 📁 Estrutura do Projeto
 
-Este repositório é destinado a:
+```
+├── data/                          # Base de conhecimento
+│   ├── perfil_investidor.json     # Perfil do cliente
+│   ├── transacoes.csv             # Histórico financeiro
+│   ├── historico_atendimento.csv  # Interações anteriores
+│   └── produtos_financeiros.json  # Produtos para ensino
+│
+├── docs/                          # Documentação completa
+│   ├── 01-documentacao-agente.md  # Caso de uso e persona
+│   ├── 02-base-conhecimento.md    # Estratégia de dados
+│   ├── 03-prompts.md              # System prompt e exemplos
+│   ├── 04-metricas.md             # Avaliação de qualidade
+│   └── 05-pitch.md                # Apresentação do projeto
+│
+└── src/
+    └── app.py                     # Aplicação Streamlit
+```
 
-- Desenvolvedores do agente de IA  
-- Equipe da Zeni Estética  
-- Profissionais responsáveis por marketing, atendimento e automação  
-- Colaboradores que precisam consultar informações oficiais da clínica  
+## 🚀 Como Executar
 
----
+### 1. Instalar Ollama
 
-## 🤖 **Sobre o Agente de IA**
+```bash
+# Baixar em: ollama.com
+ollama pull gpt-oss
+ollama serve
+```
 
-O agente foi projetado para:
+### 2. Instalar Dependências
 
-- Atender clientes com linguagem humanizada  
-- Auxiliar no agendamento de procedimentos  
-- Explicar tratamentos de forma clara e segura  
-- Reforçar o posicionamento premium da marca  
-- Aumentar conversão e fidelização  
+```bash
+pip install streamlit pandas requests
+```
 
----
+### 3. Rodar o Edu
 
-## 📬 **Contato**
+```bash
+streamlit run src/app.py
+```
 
-Para dúvidas, sugestões ou melhorias na documentação, entre em contato com a equipe responsável pelo projeto.
+## 🎯 Exemplo de Uso
 
----
+**Pergunta:** "O que é CDI?"  
+**Edu:** "CDI é uma taxa de referência usada pelos bancos. Quando um investimento rende '100% do CDI', significa que ele acompanha essa taxa. Hoje o CDI está próximo da Selic. Quer que eu explique a diferença entre os dois?"
 
-Se quiser, posso criar também:
+**Pergunta:** "Onde estou gastando mais?"  
+**Edu:** "Olhando suas transações de outubro, sua maior despesa é moradia (R$ 1.380), seguida de alimentação (R$ 570). Juntas, representam quase 80% dos seus gastos. Isso é bem comum! Quer que eu explique algumas estratégias de organização?"
 
-- **Arquitetura completa do projeto**  
-- **Guia de contribuição (CONTRIBUTING.md)**  
-- **Código de conduta (CODE_OF_CONDUCT.md)**  
-- **Versão em inglês do README**  
-- **Templates de issues e pull requests**
+## 📊 Métricas de Avaliação
 
-Quer adicionar mais alguma dessas partes ao repositório?
+| Métrica | Objetivo |
+|---------|----------|
+| **Assertividade** | O agente responde o que foi perguntado? |
+| **Segurança** | Evita inventar informações (anti-alucinação)? |
+| **Coerência** | A resposta é adequada ao perfil do cliente? |
+
+## 🎬 Diferenciais
+
+- **Personalização:** Usa os dados do próprio cliente nos exemplos
+- **100% Local:** Roda com Ollama, sem enviar dados para APIs externas
+- **Educativo:** Foco em ensinar, não em vender produtos
+- **Seguro:** Estratégias de anti-alucinação documentadas
+
+## 📝 Documentação Completa
+
+Toda a documentação técnica, estratégias de prompt e casos de teste estão disponíveis na pasta [`docs/`](./docs/).

@@ -1,0 +1,24 @@
+dataAtendimento;canalAquisicao;Procedimento;NomeCliente;PróximoAtendimento;ProximoAtendimentoRealizado
+15/03/2026;Google;Botox;Pedro;29/04/2026;Nao
+15/03/2026;Google;Bioestimulante;Gabriela;29/04/2026;Nao
+15/03/2026;Google;Bioestimulante;Felipe;29/04/2026;Nao
+15/03/2026;Google;Bioestimulante;Sandro;29/04/2026;Nao
+15/03/2026;Google;Bioestimulante;Augusto;29/04/2026;Nao
+15/03/2026;Indicacao;Botox;João;29/04/2026;Nao
+20/03/2026;Indicacao;Massagem;Francisco;04/05/2026;Nao
+21/03/2026;Instagram;Massagem;Felipe;05/05/2026;Nao
+25/03/2026;Facebook;Enzimas;Sandro;09/05/2026;Nao
+14/03/2026;Indicacao;Laser;Augusto;09/05/2026;Nao
+14/03/2026;Indicacao;Laser;Felipe;09/05/2026;Nao
+14/03/2026;Indicacao;Laser;Jorge;09/05/2026;Nao
+14/03/2026;Indicacao;Laser;Thiago;09/05/2026;Nao
+27/03/2026;Instagram;Botox;Sandro;11/05/2026;Nao
+27/03/2026;Facebook;Botox;Thiago;11/05/2026;Nao
+30/03/2026;Instagram;Massagem;Sandro;14/05/2026;Nao
+30/03/2026;Google;Enzimas;Gabriela;14/05/2026;Nao
+30/03/2026;Facebook;Enzimas;Augusto;14/05/2026;Nao
+30/03/2026;Instagram;Limpeza de pele;Augusto;14/05/2026;Nao
+30/03/2026;Indicação;Limpeza de pele;Felipe;14/05/2026;Nao
+30/03/2026;Google;Drenagem;Thiago;14/05/2026;Nao
+30/03/2026;Google;Drenagem;Sandro;14/05/2026;Nao
+30/03/2026;Google;Drenagem;Augusto;14/05/2026;Nao

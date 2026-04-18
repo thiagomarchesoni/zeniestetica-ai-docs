@@ -1,0 +1,61 @@
+{
+  "nome": "Zeni Estética Avançada",
+  "tipo_clinica": "Estética avançada e bem-estar",
+  "anos_atuacao": 5,
+  "especialidades": [
+    "Laser",
+    "Botox",
+    "Bioestimuladores",
+    "Enzimas",
+    "Limpeza de pele",
+    "Massoterapia",
+    "Drenagem linfática",
+    "Tratamentos corporais"
+  ],
+  "proposta_valor": "Proporcionar bem-estar, autoestima elevada e resultados estéticos seguros e personalizados, sem processos invasivos.",
+  "publico_alvo": [
+    "Mulheres de 25 a 70 anos",
+    "Homens interessados em autocuidado",
+    "Pessoas buscando rejuvenescimento, bem estar e qualidade de vida"
+  ],
+  "posicionamento": "Clínica premium focada em estética avançada com abordagem humanizada e foco em bem-estar.",
+  "objetivo_principal": "Aumentar a fidelização dos clientes e expandir o portfólio de tratamentos avançados.",
+  "capacidade_atendimento_mensal": 300,
+  "ticket_medio": 450.00,
+  "metas": [
+    {
+      "meta": "Aumentar a taxa de retorno dos clientes",
+      "indicador": "Retenção",
+      "valor_atual": 0.45,
+      "valor_desejado": 0.65,
+      "prazo": "2026-12"
+    },
+    {
+      "meta": "Expandir tratamentos de laser",
+      "indicador": "Procedimentos mensais",
+      "valor_atual": 180,
+      "valor_desejado": 250,
+      "prazo": "2026-06"
+    },
+    {
+      "meta": "Criar programa de bem-estar e massoterapia",
+      "indicador": "Planos recorrentes",
+      "valor_atual": 0,
+      "valor_desejado": 50,
+      "prazo": "2026-09"
+    }
+  ],
+  "personalidade_marca": [
+    "Acolhedora",
+    "Profissional",
+    "Moderna",
+    "Confiável"
+  ],
+  "tom_comunicacao": "Calmo, elegante, informativo e humanizado.",
+  "diferenciais": [
+    "Atendimento personalizado",
+    "Equipamentos de última geração",
+    "Profissionais certificados",
+    "Ambiente sensorial focado em bem-estar"
+  ]
+}
