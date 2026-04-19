@@ -101,6 +101,5 @@ Sugestões de demonstração:
 
 [Link do vídeo]
 
-
-
-Qual delas você quer?
+# ## **Link da apresentação**
+https://github.com/thiagomarchesoni/zeniestetica-ai-docs/blob/main/data/Apresenta%C3%A7%C3%A3o%20Pitch.pptx
