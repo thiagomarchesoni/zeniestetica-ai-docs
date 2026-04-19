@@ -96,10 +96,7 @@ Sugestões de demonstração:
 ---
 
 # ## **Link do Vídeo**
-
-> Cole aqui o link do seu pitch (YouTube, Loom, Google Drive, etc.)
-
-[Link do vídeo]
+[Link do vídeo]](https://www.youtube.com/watch?v=9j0KlDQH1ms)
 
 # ## **Link da apresentação**
 https://github.com/thiagomarchesoni/zeniestetica-ai-docs/blob/main/data/Apresenta%C3%A7%C3%A3o%20Pitch.pptx
